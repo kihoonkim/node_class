@@ -1,0 +1,9 @@
+console.log('m3.js 로딩');
+
+var obj = {
+  name: 'm3.js',
+  type: 'javascript'
+};
+
+// require() 함수의 결과로 리턴되는 값
+module.exports = obj;

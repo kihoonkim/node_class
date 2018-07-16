@@ -1,0 +1,1 @@
+console.log('package.json의 main 속성 로딩...');
