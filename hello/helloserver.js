@@ -18,6 +18,7 @@ var server = http.createServer(function(req, res){
   //   res.end('<h1>요청한 파일이 없습니다.</h1>');  
   // }
 
+  /* 비동기 방식
   fs.readFile(filename, function(err, data){
     if(err) {
       res.writeHead(404, {'Content-Type': 'text/html;charset=utf-8'});
@@ -27,6 +28,25 @@ var server = http.createServer(function(req, res){
       res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'});
       res.end(data);  
     }
+  });
+   */
+
+  // 스트림 방식
+  var stream = fs.createReadStream(filename);
+  stream.on('open', ()=>{
+    res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'});
+  });
+  // stream.on('data', (data)=>{  
+  //   res.write(data);  
+  // });
+  // stream.on('close', ()=>{
+  //   res.end();
+  // });
+  stream.pipe(res);
+  
+  stream.on('error', (err)=>{
+    res.writeHead(404, {'Content-Type': 'text/html;charset=utf-8'});
+    res.end('<h1>' + h.hello('node') + ' 요청한 파일이 없습니다.!!</h1>');  
   });
 });
 
