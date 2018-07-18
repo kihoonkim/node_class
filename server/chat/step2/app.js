@@ -1,25 +1,11 @@
-var http = require('http');
 var fs = require('fs');
 var path = require('path');
 var url = require('url');
 var mimeTypes = require('mime');
 
-// var mime = {
-//   '.html': 'text/html',
-//   '.svg': 'image/svg+xml',
-//   '.jpg': 'image/jpeg',
-//   '.png': 'image/png',
-//   '.gif': 'image/gif',
-//   '.css': 'text/css',
-//   '.js': 'application/javascript'
-//   //.....
-// };
-
 var logfile = fs.createWriteStream('log.txt', {flags: 'a'});
 
 var staticServer = (req, res) => {
-  console.log(req.method, req.url, req.httpVersion);
-
   if(req.url === '/') {
     req.url = 'index.html';
   }
@@ -46,9 +32,4 @@ var staticServer = (req, res) => {
   });
 };
 
-var server = http.createServer(staticServer);
-
-var port = process.argv[2] || 80;
-server.listen(port, ()=>{
-  console.log('HTTP 서버 구동')
-})
+module.exports = staticServer;

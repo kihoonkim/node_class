@@ -1,0 +1,11 @@
+var http = require('http');
+var app = require('../app');
+
+var server = http.createServer(app);
+var port = process.argv[2] || 80;
+server.listen(port, ()=>{
+  console.log('HTTP 서버 구동')
+});
+
+var socketio = require('socket.io').listen(server);
+require('../chatserver')(socketio);

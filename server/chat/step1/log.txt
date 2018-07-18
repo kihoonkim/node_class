@@ -1,0 +1,5 @@
+[Wed Jul 18 2018 10:46:04 GMT+0900 (대한민국 표준시)] 200 index.html
+[Wed Jul 18 2018 10:46:49 GMT+0900 (대한민국 표준시)] 200 /chat.html?username=1
+[Wed Jul 18 2018 10:46:54 GMT+0900 (대한민국 표준시)] 404 /logout
+[Wed Jul 18 2018 10:46:59 GMT+0900 (대한민국 표준시)] 200 index.html
+[Wed Jul 18 2018 10:47:06 GMT+0900 (대한민국 표준시)] 200 /chat.html?username=dkdk

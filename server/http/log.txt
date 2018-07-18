@@ -27,3 +27,9 @@ Tue Jul 17 2018 14:15:05 GMT+0900 (대한민국 표준시) 404 /asd,fknaslkdf
 [Tue Jul 17 2018 14:43:27 GMT+0900 (대한민국 표준시)] 403 /img
 [Tue Jul 17 2018 14:43:30 GMT+0900 (대한민국 표준시)] 200 index.html
 [Tue Jul 17 2018 14:43:30 GMT+0900 (대한민국 표준시)] 200 /img/logo.svg
+[Wed Jul 18 2018 10:06:21 GMT+0900 (대한민국 표준시)] 200 index.html
+[Wed Jul 18 2018 10:06:21 GMT+0900 (대한민국 표준시)] 200 /img/logo.svg
+[Wed Jul 18 2018 10:06:21 GMT+0900 (대한민국 표준시)] 404 /favicon.ico
+[Wed Jul 18 2018 10:06:44 GMT+0900 (대한민국 표준시)] 200 index.html
+[Wed Jul 18 2018 10:06:44 GMT+0900 (대한민국 표준시)] 200 /img/logo.svg
+[Wed Jul 18 2018 10:06:44 GMT+0900 (대한민국 표준시)] 404 /favicon.ico
