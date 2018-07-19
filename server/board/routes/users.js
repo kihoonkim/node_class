@@ -1,9 +1,16 @@
 var express = require('express');
 var router = express.Router();
+var controller = require('../controllers/user');
+var passport = require('passport');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/login', function(req, res, next) {
+  controller.form(req, res);
 });
+
+router.post('/login', passport.authenticate('local', {
+  successReturnToOrRedirect: '/',
+  failureRedirect: '/users/login'
+}));
 
 module.exports = router;
