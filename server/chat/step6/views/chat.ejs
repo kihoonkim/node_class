@@ -27,7 +27,7 @@
 
 	<script src="/socket.io/socket.io.js"></script>
 	<script>
-		var socket = io.connect('ws://localhost');
+		var socket = io.connect('ws://localhost:8080');
 
 		var msgout = document.querySelector('#panel');
 		socket.on('chat', msg=>{

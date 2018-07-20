@@ -4,7 +4,7 @@ var MongoClient = require('mongodb').MongoClient;
 var client;
 var db;
 
-MongoClient.connect('mongodb://localhost:27017', (err, result)=>{	
+MongoClient.connect('mongodb://localhost:27017', {poolSize: 10}, (err, result)=>{	
 	client = result;
 	db = client.db('boardDB');
 	db.board = db.collection('board');
@@ -35,9 +35,12 @@ var boardList = [b1, b2];
 */
 
 module.exports = {
-	list: function(cb){
+	list: function(cb, page){
+		page = page || 1;
 		db.board.find({}, {content: 0})
 						.sort({_id: -1})
+						.skip((page-1)*10)	// paging
+						.limit(10)
 						.toArray((err, result)=> {
 							cb(result);
 						});
@@ -68,5 +71,8 @@ module.exports = {
 	},
 	findUser: function(id, cb) {
 		db.user.findOne({_id: id}, {name: 1}, cb);
+	},
+	close: function(){
+		client.close();
 	}
 };

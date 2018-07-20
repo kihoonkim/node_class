@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var controller = require('../controllers/board');
+// var controller = require('../controllers/board_async');
 
 var ensureLogin = require('connect-ensure-login').ensureLoggedIn;
 
@@ -20,7 +21,7 @@ router.get('/board/new', ensureLogin('/users/login'), function(req, res, next) {
 });
 
 // 등록 요청
-router.post('/board/new', ensureLogin('/users/login'), function(req, res, next) {
+router.post('/board/new', /*ensureLogin('/users/login'),*/ function(req, res, next) {
   controller.create(req, res);
 });
 
@@ -34,4 +35,7 @@ router.delete('/board/:no', ensureLogin('/users/login'), function(req, res, next
   controller.remove(req, res);
 });
 
+router.get('/exit', function(){
+  process.exit();
+});
 module.exports = router;

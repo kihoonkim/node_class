@@ -4,7 +4,7 @@ var model = require('../models/board');
 module.exports.list = (req, res) => {
   model.list( list => {
     res.render('board/list', { title: '게시물 목록', list });
-  });
+  }, parseInt(req.query.page));
 };
 
 module.exports.form = (req, res) => {
@@ -14,7 +14,7 @@ module.exports.form = (req, res) => {
 module.exports.create = (req, res) => {
   var board = req.body;
 
-  board.writer = req.user.name;
+  // board.writer = req.user.name;
   model.create(board, no => {
     res.render('board/result', { title: '등록 결과', no });
   });  
